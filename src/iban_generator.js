@@ -48,4 +48,7 @@ ibanGenerator.prototype.fixCCC = function(n){
   var dc = this.controlDigit(n);
   return (ncc.substring(0,8)+dc+ncc.substring(ncc.length-10,ncc.length));
 }
+ibanGenerator.prototype.doIban = function(ccc) {
+  return(iban.fromBBAN("ES",ccc));
+}
 module.exports = ibanGenerator;

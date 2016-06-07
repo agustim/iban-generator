@@ -31,15 +31,15 @@ describe('Testing de ibanGenerator:', function(){
   })
   it('Calcular IBAN', function(){
     var ccc = "12345678061234567890";
-    var iban = "";
+    var iban = "ES6812345678061234567890";
     expect(ig.doIban(ccc)).toBe(iban);
   })
   it('Validar IBAN correcte', function(){
-    var iban = '';
+    var iban = 'ES6812345678061234567890';
     expect(ig.checkIban(iban)).toBe(true);
   })
   it('Validar IBAN incorrecte', function(){
-    var iban = '';
+    var iban = 'ES9812345678061234567890';
     expect(ig.checkIban(iban)).toBe(true);
   })
 
