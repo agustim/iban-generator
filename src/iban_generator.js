@@ -20,15 +20,14 @@ ibanGenerator.prototype._randomNumber = function(n){
   return num;
 }
 ibanGenerator.prototype.controlDigit = function(n){
-  var entitat_oficina = n.substring(0,8);
-  var cc = n.substring(n.length-10,n.length);
+  var ncc = n.replace(/ /g,'');
+  var entitat_oficina = ncc.substring(0,8);
+  var cc = ncc.substring(ncc.length-10,ncc.length);
 
   var dc1 = this._calculaDCParcial(entitat_oficina);
   var dc2 = this._calculaDCParcial(cc);
   return (dc1+dc2);
 }
-
-
 ibanGenerator.prototype._calculaDCParcial = function(cadena){
 	var dcParcial = 0;
 	var tablaPesos = [6,3,7,9,10,5,8,4,2,1];
@@ -44,5 +43,9 @@ ibanGenerator.prototype._calculaDCParcial = function(cadena){
 		dcParcial=1;
 	return dcParcial.toString();
 }
-
+ibanGenerator.prototype.fixCCC = function(n){
+  var ncc = n.replace(/ /g,'');
+  var dc = this.controlDigit(n);
+  return (ncc.substring(0,8)+dc+ncc.substring(ncc.length-10,ncc.length));
+}
 module.exports = ibanGenerator;

@@ -24,8 +24,13 @@ describe('Testing de ibanGenerator:', function(){
     var dc = "06"
     expect(ig.controlDigit(ccc)).toBe(dc);
   })
+  it('Fix CCC', function(){
+    var ccc = "1234 5678 1234567890"
+    var cccfixed = "12345678061234567890"
+    expect(ig.fixCCC(ccc)).toBe(cccfixed);
+  })
   it('Calcular IBAN', function(){
-    var ccc = "";
+    var ccc = "12345678061234567890";
     var iban = "";
     expect(ig.doIban(ccc)).toBe(iban);
   })
