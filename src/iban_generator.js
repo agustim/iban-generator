@@ -19,6 +19,30 @@ ibanGenerator.prototype._randomNumber = function(n){
   }
   return num;
 }
+ibanGenerator.prototype.controlDigit = function(n){
+  var entitat_oficina = n.substring(0,8);
+  var cc = n.substring(n.length-10,n.length);
 
+  var dc1 = this._calculaDCParcial(entitat_oficina);
+  var dc2 = this._calculaDCParcial(cc);
+  return (dc1+dc2);
+}
+
+
+ibanGenerator.prototype._calculaDCParcial = function(cadena){
+	var dcParcial = 0;
+	var tablaPesos = [6,3,7,9,10,5,8,4,2,1];
+	var suma = 0;
+	var i;
+	for(i=0;i<cadena.length;i++){
+		suma = suma + cadena.charAt(cadena.length-1-i)*tablaPesos[i];
+	}
+	dcParcial = (11-(suma % 11));
+	if(dcParcial==11)
+		dcParcial=0;
+	else if(dcParcial==10)
+		dcParcial=1;
+	return dcParcial.toString();
+}
 
 module.exports = ibanGenerator;

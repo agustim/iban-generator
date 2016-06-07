@@ -10,8 +10,18 @@ describe('Testing de ibanGenerator:', function(){
     expect(ig.randomNumber()).toMatch(/\d{1,}/);
   })
   it('Digit control CCC', function(){
-    var ccc = ""
-    var dc = ""
+    var ccc = "12345678001234567890"
+    var dc = "06"
+    expect(ig.controlDigit(ccc)).toBe(dc);
+  })
+  it('Digit control CCC sense 00', function(){
+    var ccc = "123456781234567890"
+    var dc = "06"
+    expect(ig.controlDigit(ccc)).toBe(dc);
+  })
+  it('Digit control CCC amb espais', function(){
+    var ccc = "1234 5678 1234567890"
+    var dc = "06"
     expect(ig.controlDigit(ccc)).toBe(dc);
   })
   it('Calcular IBAN', function(){
