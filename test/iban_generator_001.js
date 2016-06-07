@@ -40,7 +40,7 @@ describe('Testing de ibanGenerator:', function(){
   })
   it('Validar IBAN incorrecte', function(){
     var iban = 'ES9812345678061234567890';
-    expect(ig.checkIban(iban)).toBe(true);
+    expect(ig.checkIban(iban)).toBe(false);
   })
 
 

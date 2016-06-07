@@ -1,6 +1,6 @@
 'use strict'
 
-var iban = require('iban');
+var IBAN = require('iban');
 
 function ibanGenerator() {
 
@@ -49,6 +49,9 @@ ibanGenerator.prototype.fixCCC = function(n){
   return (ncc.substring(0,8)+dc+ncc.substring(ncc.length-10,ncc.length));
 }
 ibanGenerator.prototype.doIban = function(ccc) {
-  return(iban.fromBBAN("ES",ccc));
+  return(IBAN.fromBBAN("ES",ccc));
+}
+ibanGenerator.prototype.checkIban = function(iban) {
+  return(IBAN.isValid(iban));
 }
 module.exports = ibanGenerator;
