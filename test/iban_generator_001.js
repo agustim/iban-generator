@@ -1,10 +1,9 @@
 var expect = require('expect');
-var ibanGenerator = require('../src/iban_generator.js');
+var ig = require('../src/iban_generator.js');
 
 
 describe('Testing de ibanGenerator:', function(){
   before(function(){
-    ig = new ibanGenerator();
   })
   it('Generar numeros aleatoris compte', function(){
     expect(ig.randomNumber()).toMatch(/\d{1,}/);
@@ -31,8 +30,8 @@ describe('Testing de ibanGenerator:', function(){
   })
   it('Calcular IBAN', function(){
     var ccc = "12345678061234567890";
-    var iban = "ES6812345678061234567890";
-    expect(ig.doIban(ccc)).toBe(iban);
+    var ibn = "ES6812345678061234567890";
+    expect(ig.doIban(ccc)).toBe(ibn);
   })
   it('Validar IBAN correcte', function(){
     var iban = 'ES6812345678061234567890';
