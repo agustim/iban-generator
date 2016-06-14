@@ -1,5 +1,5 @@
 var expect = require('expect');
-var ig = require('../src/iban_generator.js');
+var ig = require('../src/iban-generator.js');
 
 
 describe('Testing de ibanGenerator:', function(){

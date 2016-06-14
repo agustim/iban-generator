@@ -1,24 +1,25 @@
 {
-  "name": "iban_generator",
-  "version": "0.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "iban-generator",
+  "version": "0.0.1",
+  "description": "IBAN generator system.",
+  "main": "iban-generator.js",
   "scripts": {
-    "start": "node index.js",
     "test": "mocha --recursive test/"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/agustim/iban_generator.git"
+    "url": "https://github.com/agustim/iban-generator.git"
   },
-  "author": "Agustí Moll <agusti@mollcarbo.name>",
+  "author": "Agustí Moll <agusti@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/agustim/iban_generator/issues"
+    "url": "https://github.com/agustim/iban-generator/issues"
   },
   "dependencies": {
+    "iban": "0.0.6"
+  },
+  "devDependencies": {
     "expect": "^1.20.1",
-    "iban": "0.0.6",
     "mocha": "^2.5.3"
   }
 }
